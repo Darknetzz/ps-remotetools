@@ -1,16 +1,8 @@
 # ======================================================================= #
 #                              Unblock-Files                              #
 # ======================================================================= #
-function Unblock-Files {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory=$true)]
-        [string[]]$Host,
-        [Parameter(Mandatory=$true)]
-        [string[]]$Files
-    )
+<#
 
-    <#
     .SYNOPSIS
         Unblocks specified files on remote hosts.
 
@@ -25,15 +17,25 @@ function Unblock-Files {
         An array of file paths that need to be unblocked on the remote hosts. This parameter is mandatory.
 
     .EXAMPLE
-        Unblock-Files -Host "Server01", "Server02" -Files "C:\path\to\file1.txt", "C:\path\to\file2.txt"
+        Unblock-Files -Hosts "Server01", "Server02" -Files "C:\path\to\file1.txt", "C:\path\to\file2.txt"
         This command unblocks the specified files on the remote hosts Server01 and Server02.
-    #>
+        
+#>
+function Unblock-Files {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true)]
+        [string[]]$Hosts,
+
+        [Parameter(Mandatory=$true)]
+        [string[]]$Files
+    )
 
     $remoteCommands = {
         Unblock-File -Path $using:Files
     }
-    $output = Invoke-Command -ComputerName $Host -ScriptBlock $remoteCommands
-    Write-Output "> Unblocking files for $Host"
+    $output = Invoke-Command -ComputerName $Hosts -ScriptBlock $remoteCommands
+    Write-Output "> Unblocking files for $Hosts"
     Write-Output "$($output | Out-String)"
 }
 

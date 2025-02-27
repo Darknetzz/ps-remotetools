@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-# RootModule = ''
+RootModule = 'Remote-Tools.ps1'
 
 # Version number of this module.
 ModuleVersion = '2.0'
@@ -30,7 +30,7 @@ CompanyName = 'Unknown'
 Copyright = '(c) Darknetzz. All rights reserved.'
 
 # Description of the functionality provided by this module
-# Description = ''
+Description = 'Helpful functions to execute commands on remote hosts using `PSRemote` and `Invoke-Command`.'
 
 # Minimum version of the PowerShell engine required by this module
 # PowerShellVersion = ''

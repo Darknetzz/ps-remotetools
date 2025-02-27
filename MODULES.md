@@ -5,17 +5,18 @@
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
 
+## Module: RT-Acl---
 ## Module: RT-Files
-### **Function:** `Unblock-Files`
+### __Function:__ `Unblock-Files`
 
-* **Synopsis**
+* __Synopsis__
 ```ps1
 
-Unblock-Files [-Host] <string[]> [-Files] <string[]> [<CommonParameters>]
+Unblock-Files [-Hosts] <string[]> [-Files] <string[]> [<CommonParameters>]
 
 ```
 
-* **Syntax**
+* __Syntax__
 ```ps1
 
 syntaxItem
@@ -25,10 +26,12 @@ syntaxItem
 
 ```
 
-* **Description**
+* __Description__
+```ps1
 
+```
 
-* **Parameters**
+* __Parameters__
 ```ps1
 
 ### 
@@ -36,7 +39,7 @@ syntaxItem
 
 ```
 
-* **Examples**
+* __Examples__
 ```ps1
 
 ### Example 
@@ -44,7 +47,7 @@ syntaxItem
 
 ```
 
-* **Notes**
+* __Notes__
 ```ps1
 
 ```
@@ -53,21 +56,21 @@ Functiondetails
 ```ps1
 @{CommonParameters=True; details=; Syntax=; parameters=; inputTypes=; returnValues=; aliases=None
 ; remarks=None; alertSet=; description=; examples=; Synopsis=
-Unblock-Files [-Host] <string[]> [-Files] <string[]> [<CommonParameters>]
+Unblock-Files [-Hosts] <string[]> [-Files] <string[]> [<CommonParameters>]
 ; ModuleName=RT-Files; nonTerminatingErrors=; xmlns:command=http://schemas.microsoft.com/maml/dev/command/2004/10; xmlns:dev=http://schemas.microsoft.com/maml/dev/2004/10; xmlns:maml=http://schemas.microsoft.com/maml/2004/10; Name=Unblock-Files; Category=Function; Component=; Role=; Functionality=}
 ```
 ---
 ## Module: RT-GroupMembers
-### **Function:** `Add-GroupMembers`
+### __Function:__ `Add-GroupMembers`
 
-* **Synopsis**
+* __Synopsis__
 ```ps1
 
-Add-GroupMembers [-Host] <string> [[-GroupName] <string>] [-Members] <string[]> [<CommonParameters>]
+Add-GroupMembers [-Hosts] <string> [[-GroupName] <string>] [-Members] <string[]> [[-Force] <bool>] [<CommonParameters>]
 
 ```
 
-* **Syntax**
+* __Syntax__
 ```ps1
 
 syntaxItem
@@ -77,10 +80,12 @@ syntaxItem
 
 ```
 
-* **Description**
+* __Description__
+```ps1
 
+```
 
-* **Parameters**
+* __Parameters__
 ```ps1
 
 ### 
@@ -88,7 +93,7 @@ syntaxItem
 
 ```
 
-* **Examples**
+* __Examples__
 ```ps1
 
 ### Example 
@@ -96,7 +101,7 @@ syntaxItem
 
 ```
 
-* **Notes**
+* __Notes__
 ```ps1
 
 ```
@@ -105,20 +110,20 @@ Functiondetails
 ```ps1
 @{CommonParameters=True; details=; Syntax=; parameters=; inputTypes=; returnValues=; aliases=None
 ; remarks=None; alertSet=; description=; examples=; Synopsis=
-Add-GroupMembers [-Host] <string> [[-GroupName] <string>] [-Members] <string[]> [<CommonParameters>]
+Add-GroupMembers [-Hosts] <string> [[-GroupName] <string>] [-Members] <string[]> [[-Force] <bool>] [<CommonParameters>]
 ; ModuleName=RT-GroupMembers; nonTerminatingErrors=; xmlns:command=http://schemas.microsoft.com/maml/dev/command/2004/10; xmlns:dev=http://schemas.microsoft.com/maml/dev/2004/10; xmlns:maml=http://schemas.microsoft.com/maml/2004/10; Name=Add-GroupMembers; Category=Function; Component=; Role=; Functionality=}
 ```
 
-### **Function:** `Get-GroupMembers`
+### __Function:__ `Get-GroupMembers`
 
-* **Synopsis**
+* __Synopsis__
 ```ps1
 
-Get-GroupMembers [-Host] <string> [[-GroupName] <string>] [<CommonParameters>]
+Get-GroupMembers [-Hosts] <string> [[-GroupName] <string>] [<CommonParameters>]
 
 ```
 
-* **Syntax**
+* __Syntax__
 ```ps1
 
 syntaxItem
@@ -128,10 +133,12 @@ syntaxItem
 
 ```
 
-* **Description**
+* __Description__
+```ps1
 
+```
 
-* **Parameters**
+* __Parameters__
 ```ps1
 
 ### 
@@ -139,7 +146,7 @@ syntaxItem
 
 ```
 
-* **Examples**
+* __Examples__
 ```ps1
 
 ### Example 
@@ -147,7 +154,7 @@ syntaxItem
 
 ```
 
-* **Notes**
+* __Notes__
 ```ps1
 
 ```
@@ -156,20 +163,20 @@ Functiondetails
 ```ps1
 @{CommonParameters=True; details=; Syntax=; parameters=; inputTypes=; returnValues=; aliases=None
 ; remarks=None; alertSet=; description=; examples=; Synopsis=
-Get-GroupMembers [-Host] <string> [[-GroupName] <string>] [<CommonParameters>]
+Get-GroupMembers [-Hosts] <string> [[-GroupName] <string>] [<CommonParameters>]
 ; ModuleName=RT-GroupMembers; nonTerminatingErrors=; xmlns:command=http://schemas.microsoft.com/maml/dev/command/2004/10; xmlns:dev=http://schemas.microsoft.com/maml/dev/2004/10; xmlns:maml=http://schemas.microsoft.com/maml/2004/10; Name=Get-GroupMembers; Category=Function; Component=; Role=; Functionality=}
 ```
 
-### **Function:** `Remove-GroupMembers`
+### __Function:__ `Remove-GroupMembers`
 
-* **Synopsis**
+* __Synopsis__
 ```ps1
 
-Remove-GroupMembers [-Host] <string> [[-GroupName] <string>] [-Members] <string[]> [<CommonParameters>]
+Remove-GroupMembers [-Hosts] <string> [[-GroupName] <string>] [-Members] <string[]> [[-Force] <bool>] [<CommonParameters>]
 
 ```
 
-* **Syntax**
+* __Syntax__
 ```ps1
 
 syntaxItem
@@ -179,10 +186,12 @@ syntaxItem
 
 ```
 
-* **Description**
+* __Description__
+```ps1
 
+```
 
-* **Parameters**
+* __Parameters__
 ```ps1
 
 ### 
@@ -190,7 +199,7 @@ syntaxItem
 
 ```
 
-* **Examples**
+* __Examples__
 ```ps1
 
 ### Example 
@@ -198,7 +207,7 @@ syntaxItem
 
 ```
 
-* **Notes**
+* __Notes__
 ```ps1
 
 ```
@@ -207,8 +216,10 @@ Functiondetails
 ```ps1
 @{CommonParameters=True; details=; Syntax=; parameters=; inputTypes=; returnValues=; aliases=None
 ; remarks=None; alertSet=; description=; examples=; Synopsis=
-Remove-GroupMembers [-Host] <string> [[-GroupName] <string>] [-Members] <string[]> [<CommonParameters>]
+Remove-GroupMembers [-Hosts] <string> [[-GroupName] <string>] [-Members] <string[]> [[-Force] <bool>] [<CommonParameters>]
 ; ModuleName=RT-GroupMembers; nonTerminatingErrors=; xmlns:command=http://schemas.microsoft.com/maml/dev/command/2004/10; xmlns:dev=http://schemas.microsoft.com/maml/dev/2004/10; xmlns:maml=http://schemas.microsoft.com/maml/2004/10; Name=Remove-GroupMembers; Category=Function; Component=; Role=; Functionality=}
 ```
 ---
+## Module: RT-MpPreferences---
+## Module: RT-PSRemoting---
 

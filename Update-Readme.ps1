@@ -28,7 +28,7 @@ foreach ($moduleFile in $moduleFiles) {
 
     foreach ($function in $functions) {
         # Get the function details
-        $functionDetails = Get-Help $function.Name
+        $functionDetails = Get-Help $function.Name -Full
 
         # Append the function details to the README.md content
         $readmeContent += @"
@@ -46,7 +46,9 @@ $($functionDetails.Syntax | Out-String)
 ``````
 
 * __Description__
+``````ps1
 $($functionDetails.Description)
+``````
 
 * __Parameters__
 ``````ps1
