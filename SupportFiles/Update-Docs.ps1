@@ -35,41 +35,69 @@ foreach ($Module in $ModuleFiles) {
 Write-Output "Module.BaseName $($Module.BaseName)"
 Write-Output "Module.FullName $($Module.FullName)"
 Write-Output "Module.DirectoryName $($Module.DirectoryName)"
-
-Write-Output "Import-Module $Module.FullName -Force -PassThru"
+if (Get-Module -Name $Module.BaseName) {
+    Write-Output "Module $($Module.BaseName) is already loaded. Removing it first."
+    Remove-Module -Name $Module.BaseName -Force
+}
+Write-Output "Import-Module $($Module.Directory) -Force -PassThru"
 Write-Output "Get-Command -Module $ThisModule -CommandType Function -All -PassThru"
 $ThisModule = Import-Module $Module.FullName -Force -PassThru
 $Functions  = Get-Command -Module $ThisModule -CommandType Function -All -PassThru
 
-AddToReadme @"
-## Module: $($ThisModule.Name)
+    AddToReadme @"
+# $($ThisModule.Name)
+$($ThisModule.Description)
 "@
-
     # Get all functions defined in the module
     $Functions | ForEach-Object {
 
         # Get the function details
         $functionDetails = Get-Help -Name $_.Name -Full
-        $functionDetails | Select-Object -Property Name, Synopsis, Syntax, Description, Parameters, Examples, Notes
+        # $functionDetails | Select-String -Property Name, Synopsis, Syntax, Description, Parameters, Examples, Notes
         # Append the function details to the README.md content
+        $functionDetailsFormatted = @{
+            Name        = $functionDetails.Name
+            Synopsis    = $functionDetails.Synopsis
+            Syntax      = $functionDetails.Syntax
+            Description = $functionDetails | Select-String -Property Description
+            Parameters  = $functionDetails | Select-String -Property Parameters
+            Examples    = $functionDetails | Select-String -Property Examples
+            Notes       = $functionDetails | Select-String -Property Notes
+        }
+
         Write-Output "Processing function: $($_.Name)"
         Write-Output "Help content found: $(if($functionDetails.Synopsis){$true}else{$false})"
         AddToReadme @"
 
-### $($functionDetails.Name)
+## $($_.Name)
 
-$($functionDetails.Syntax | Format-Table | Out-String)
+* **Synopsis**:
+$($synopsis)
 
-$($functionDetails.Description | Out-String)
+* **Syntax**:
+``````powershell
+$($syntax)
+``````
 
-$($functionDetails.Parameters | ForEach-Object {
-    "`n### $($_.Name)`n$($_.Description)"
-} | Out-String)
+* **Description**:
+``````powershell
+$($description)
+``````
 
-$($functionDetails.Examples | ForEach-Object {
-    "`n### Example $($_.Name)`n$($_.Code)"
-} | Out-String)
+* **Parameters**:
+``````powershell
+$($functionDetails.Parameters)
+``````
+
+* **Examples**:
+``````powershell
+$($functionDetails.Examples)
+``````
+
+* **Notes**:
+``````powershell
 $($functionDetails.Notes)
+``````
 
 
 "@
@@ -80,11 +108,7 @@ $($functionDetails.Notes)
     Write-Output "Remove-Module ${ThisModule}"
     Remove-Module $ThisModule.Name
 
+
+# Add a separator between modules
+AddToReadme "---`n"
 }
-
-# Add a separator between modules
-AddToReadme "---`n"
-
-
-# Add a separator between modules
-AddToReadme "---`n"

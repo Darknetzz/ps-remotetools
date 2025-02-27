@@ -1,102 +1,141 @@
 
 # Remote-Tools
-**Last updated: 2025-02-27 20:25:04**
+**Last updated: 2025-02-27 20:56:00**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
 
-## Module: RT-Files
-### Unblock-Files
+# RT-Files
 
+## Unblock-Files
 
-syntaxItem
-----------
-{@{name=Unblock-Files; CommonParameters=True; parameter=System.Object[]}}
+* **Synopsis**:
 
 
+* **Syntax**:
+```powershell
 
+```
 
+* **Description**:
+```powershell
 
+```
 
-### 
+* **Parameters**:
+```powershell
+@{parameter=System.Management.Automation.PSObject[]}
+```
 
+* **Examples**:
+```powershell
+@{example=@{title=-------------------------- EXAMPLE 1 --------------------------; code=Unblock-Files -Hosts "Server01", "Server02" -Files "C:\path\to\file1.txt", "C:\path\to\file2.txt"
+This command unblocks the specified files on the remote hosts Server01 and Server02.; introduction=System.Management.Automation.PSObject[]; remarks=System.Management.Automation.PSObject[]}}
+```
 
+* **Notes**:
+```powershell
 
+```
 
-### Example 
+---
+# RT-GroupMembers
 
+## Add-GroupMembers
 
+* **Synopsis**:
 
 
-## Module: RT-GroupMembers
-### Add-GroupMembers
+* **Syntax**:
+```powershell
 
+```
 
-syntaxItem
-----------
-{@{name=Add-GroupMembers; CommonParameters=True; parameter=System.Object[]}}
+* **Description**:
+```powershell
 
+```
 
+* **Parameters**:
+```powershell
+@{parameter=System.Management.Automation.PSObject[]}
+```
 
+* **Examples**:
+```powershell
+@{example=System.Management.Automation.PSObject[]}
+```
 
+* **Notes**:
+```powershell
 
+```
 
-### 
 
+## Get-GroupMembers
 
+* **Synopsis**:
 
 
-### Example 
+* **Syntax**:
+```powershell
 
+```
 
+* **Description**:
+```powershell
 
+```
 
+* **Parameters**:
+```powershell
+@{parameter=System.Management.Automation.PSObject[]}
+```
 
-### Get-GroupMembers
+* **Examples**:
+```powershell
+@{example=System.Management.Automation.PSObject[]}
+```
 
+* **Notes**:
+```powershell
 
-syntaxItem
-----------
-{@{name=Get-GroupMembers; CommonParameters=True; parameter=System.Object[]}}
+```
 
 
+## Remove-GroupMembers
 
+* **Synopsis**:
 
 
+* **Syntax**:
+```powershell
 
-### 
+```
 
+* **Description**:
+```powershell
 
+```
 
+* **Parameters**:
+```powershell
+@{parameter=System.Management.Automation.PSObject[]}
+```
 
-### Example 
+* **Examples**:
+```powershell
+@{example=System.Management.Automation.PSObject[]}
+```
 
+* **Notes**:
+```powershell
 
+```
 
-
-
-### Remove-GroupMembers
-
-
-syntaxItem
-----------
-{@{name=Remove-GroupMembers; CommonParameters=True; parameter=System.Object[]}}
-
-
-
-
-
-
-### 
-
-
-
-
-### Example 
-
-
-
-
-## Module: RT-MpPreferences## Module: RT-PSRemoting---
+---
+# RT-MpPreferences
+---
+# RT-PSRemoting
 ---
 
