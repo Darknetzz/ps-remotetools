@@ -22,7 +22,7 @@ Function AddToReadme {
 AddToReadme @"
 
 # Remote-Tools
-**Last updated: $(Get-Date -Format "yyyy-MM-dd HH:mm:ii")**
+**Last updated: $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
@@ -36,69 +36,55 @@ Write-Output "Module.BaseName $($Module.BaseName)"
 Write-Output "Module.FullName $($Module.FullName)"
 Write-Output "Module.DirectoryName $($Module.DirectoryName)"
 
+Write-Output "Import-Module $Module.FullName -Force -PassThru"
+Write-Output "Get-Command -Module $ThisModule -CommandType Function -All -PassThru"
 $ThisModule = Import-Module $Module.FullName -Force -PassThru
-$Functions = Get-Command -Module $ThisModule -CommandType Function -PassThru
+$Functions  = Get-Command -Module $ThisModule -CommandType Function -All -PassThru
 
 AddToReadme @"
 ## Module: $($ThisModule.Name)
 "@
 
     # Get all functions defined in the module
-    foreach ($function in $functions) {
-        # Get the function details
-        $functionDetails = Get-Help $function.Name -Full
+    $Functions | ForEach-Object {
 
+        # Get the function details
+        $functionDetails = Get-Help -Name $_.Name -Full
+        $functionDetails | Select-Object -Property Name, Synopsis, Syntax, Description, Parameters, Examples, Notes
         # Append the function details to the README.md content
+        Write-Output "Processing function: $($_.Name)"
+        Write-Output "Help content found: $(if($functionDetails.Synopsis){$true}else{$false})"
         AddToReadme @"
 
 ### $($functionDetails.Name)
 
-* __Synopsis__
-``````ps1
-$($functionDetails.Synopsis)
-``````
+$($functionDetails.Syntax | Format-Table | Out-String)
 
-* __Syntax__
-``````ps1
-$($functionDetails.Syntax | Out-String)
-``````
+$($functionDetails.Description | Out-String)
 
-* __Description__
-``````ps1
-$($functionDetails.Description)
-``````
-
-* __Parameters__
-``````ps1
 $($functionDetails.Parameters | ForEach-Object {
     "`n### $($_.Name)`n$($_.Description)"
 } | Out-String)
-``````
 
-* __Examples__
-``````ps1
 $($functionDetails.Examples | ForEach-Object {
     "`n### Example $($_.Name)`n$($_.Code)"
 } | Out-String)
-``````
-
-* __Notes__
-``````ps1
 $($functionDetails.Notes)
-``````
 
-Functiondetails
-``````ps1
-$($functionDetails)
-``````
 
 "@
+
     }
 
     # Remove the imported module
     Write-Output "Remove-Module ${ThisModule}"
     Remove-Module $ThisModule.Name
 
-    # Add a separator between modules
-    AddToReadme "---`n"
 }
+
+# Add a separator between modules
+AddToReadme "---`n"
+
+
+# Add a separator between modules
+AddToReadme "---`n"
