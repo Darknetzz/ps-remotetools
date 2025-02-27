@@ -1,4 +1,6 @@
-# Remote-Tools
+# ps-remotetools
+
+Helpful functions to execute commands on remote hosts using `PSRemote` and `Invoke-Command`.
 
 
 ## Usage
@@ -12,7 +14,7 @@
 Import-Module "Modules\RT-<module>.psm1"
 
 ```
-
+<!--
 ## Variables
 * $CurrentScriptName 
     > $MyInvocation.MyCommand.Name
@@ -24,11 +26,22 @@ Import-Module "Modules\RT-<module>.psm1"
     > Split-Path -Path $CurrentScriptPath -Leaf
 * $isDotSourced
     > $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
+-->
 
-## Modules
-* RT-Files.psm1
-  * Unblock-Files
-* RT-GroupMembers
-  * Get-GroupMembers
-  * Add-GroupMembers
-  * Remove-GroupMembers
+# Modules
+
+## RT-Files.psm1
+
+### Unblock-Files
+
+---
+
+## RT-GroupMembers
+
+### Get-GroupMembers
+
+
+### Add-GroupMembers
+
+
+### Remove-GroupMembers
