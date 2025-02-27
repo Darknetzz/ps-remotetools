@@ -1,7 +1,9 @@
 # ======================================================================= #
 #                             Add-GroupMembers                            #
 # ======================================================================= #
-<#
+
+function Add-GroupMembers {
+    <#
     .SYNOPSIS
     Adds specified members to a local group on a remote computer.
 
@@ -24,8 +26,7 @@
     .EXAMPLE
     Add-GroupMembers -Hosts "Server02" -Members "User3"
     This example adds User3 to the "Administrators" group on the remote computer "Server02".
-#>
-function Add-GroupMembers {
+    #>
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
@@ -63,7 +64,9 @@ function Add-GroupMembers {
 # ======================================================================= #
 #                           Get-GroupMembers                              #
 # ======================================================================= #
-<#
+
+function Get-GroupMembers {
+    <#
 
     .SYNOPSIS
     Retrieves members of a specified local group on a remote computer.
@@ -85,8 +88,7 @@ function Add-GroupMembers {
     PS> Get-GroupMembers -Hosts "Server02"
     This example retrieves the members of the "Administrators" group on the remote computer "Server02".
 
-#>
-function Get-GroupMembers {
+    #>
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
@@ -108,7 +110,9 @@ function Get-GroupMembers {
 # ======================================================================= #
 #                           Remove-GroupMembers                           #
 # ======================================================================= #
-<#
+
+function Remove-GroupMembers {
+    <#
 
     .SYNOPSIS
     Removes specified members from a local group on a remote computer.
@@ -133,8 +137,7 @@ function Get-GroupMembers {
     Remove-GroupMembers -Hosts "Server02" -Members "User3"
     This example removes User3 from the "Administrators" group on the remote computer "Server02".
 
-#>
-function Remove-GroupMembers {
+    #>
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
