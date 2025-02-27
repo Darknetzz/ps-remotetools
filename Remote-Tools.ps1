@@ -16,8 +16,6 @@ foreach ($Module in $Modules) {
     $ThisName     = $Module.BaseName
     $ThisFile     = $Module.Name
     $ThisPath     = $Module.FullName
-
-    # Update-Help $Module
     # Get-Help $ThisName -Full
     # exit
     Write-Output "- ModuleName: ${ThisName}"
@@ -25,8 +23,8 @@ foreach ($Module in $Modules) {
     Write-Output "- ModulePath: ${ThisPath}"
     Write-Output ""
     Import-Module -Name $ThisPath
+    Update-Help -Module $ThisName -Force
     Get-Module -Name $ThisName
-    exit
     Get-Command -Module $Module.Value.Name | ForEach-Object {
         Write-Output "> $_.Name"
         Get-Help -Name $_.Name -Full | Format-List -Property Name, Synopsis
