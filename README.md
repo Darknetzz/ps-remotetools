@@ -14,6 +14,10 @@ Helpful functions to execute commands on remote hosts using `PSRemote` and `Invo
 Import-Module "Modules\RT-<module>.psm1"
 
 ```
+
+## Module Documentation
+For detailed module documentation, please refer to [MODULES.md](MODULES.md).
+
 <!--
 ## Variables
 * $CurrentScriptName 
@@ -27,21 +31,3 @@ Import-Module "Modules\RT-<module>.psm1"
 * $isDotSourced
     > $MyInvocation.InvocationName -eq '.' -or $MyInvocation.Line -eq ''
 -->
-
-# Modules
-
-## RT-Files.psm1
-
-### Unblock-Files
-
----
-
-## RT-GroupMembers
-
-### Get-GroupMembers
-
-
-### Add-GroupMembers
-
-
-### Remove-GroupMembers

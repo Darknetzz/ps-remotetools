@@ -6,7 +6,16 @@ $modulesPath      = "$currentDirectory\Modules"
 $moduleFiles = Get-ChildItem -Path $modulesPath -Filter *.psm1
 
 # Initialize the README.md content
-$readmeContent = ""
+$readmeContent = @"
+
+# Remote-Tools
+**Last updated: $(Get-Date -Format "yyyy-MM-dd")**
+
+
+This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
+
+
+"@
 
 foreach ($moduleFile in $moduleFiles) {
     # Import the module
@@ -15,7 +24,7 @@ foreach ($moduleFile in $moduleFiles) {
     # Get all functions defined in the module
     $functions = Get-Command -Module $moduleFile.BaseName -CommandType Function
 
-    $readmeContent += "# $($moduleFile.BaseName)"
+    $readmeContent += "## Module: $($moduleFile.BaseName)"
 
     foreach ($function in $functions) {
         # Get the function details
@@ -24,39 +33,53 @@ foreach ($moduleFile in $moduleFiles) {
         # Append the function details to the README.md content
         $readmeContent += @"
 
-## $($function.Name)
+### `__Function:__ ``$($function.Name)``
 
-### Synopsis
+* __Synopsis__
 ``````ps1
 $($functionDetails.Synopsis)
 ``````
 
-### Syntax
+* __Syntax__
 ``````ps1
 $($functionDetails.Syntax | Out-String)
 ``````
 
-### Description
+* __Description__
 $($functionDetails.Description)
 
-### Parameters
+* __Parameters__
+``````ps1
 $($functionDetails.Parameters | ForEach-Object {
     "`n### $($_.Name)`n$($_.Description)"
 } | Out-String)
+``````
 
-### Examples
+* __Examples__
+``````ps1
 $($functionDetails.Examples | ForEach-Object {
     "`n### Example $($_.Name)`n$($_.Code)"
 } | Out-String)
+``````
 
-### Notes
+* __Notes__
+``````ps1
 $($functionDetails.Notes)
+``````
+
+Functiondetails
+``````ps1
+$($functionDetails)
+``````
 
 "@
     }
 
     # Remove the imported module
     Remove-Module $moduleFile.BaseName
+
+    # Add a separator between modules
+    $readmeContent += "---`n"
 }
 
 # Path to the README.md file
