@@ -5,21 +5,23 @@ Helpful functions to execute commands on remote hosts using `PSRemote` and `Invo
 
 ## Usage
 
+
+### Importing Remote-Tools
+```ps1
+# Imports Remote-Tools to current session
+PS> .\Remote-Tools.ps1
+```
+
 ### Installing Remote-Tools
+Currently does not work!
 ```ps1
 # Installs Remote-Tools
 PS> .\Remote-Tools.ps1 -Install
 ```
 
-### Importing Remote-Tools
-```ps1
-# Imports Remote-Tools to current session
-PS> .\Remote-Tools.ps1 -Import
-```
-
 ### Importing a single module
 ```ps1
-Import-Module "Modules\RT-<module>.psm1"
+Import-Module "Modules\RT-<module>\RT-"
 ```
 
 ## Module Documentation

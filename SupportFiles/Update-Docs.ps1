@@ -1,10 +1,8 @@
-# Path to the Modules directory
-$currentDirectory = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-$parentDirectory  = Split-Path -Path $currentDirectory -Parent
-$modulesPath      = "$currentDirectory\Modules"
-
-# Get all module files in the Modules directory
-$moduleFiles = Get-ChildItem -Path $modulesPath -Filter *.psm1
+$CurrentScriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$ParentDir        = Split-Path -Path $CurrentScriptDir -Parent
+$ModulesDir       = $ParentDir | Get-ChildItem -Recurse -Directory -Filter Modules
+$ModuleFiles      = $ModulesDir | Get-ChildItem -Filter *.psm1 -Recurse
+. $CurrentScriptDir\Variables.ps1
 
 # Initialize the README.md content
 $readmeContent = @"
@@ -18,15 +16,21 @@ This repository contains a collection of PowerShell modules that provide functio
 
 "@
 
-foreach ($moduleFile in $moduleFiles) {
-    # Import the module
-    Import-Module $moduleFile.FullName -Force
+foreach ($Module in $ModuleFiles) {
+
+Write-Output "BaseName $($Module.BaseName)"
+Write-Output "FullName $($Module.FullName)"
+Write-Output "DirectoryName $($Module.DirectoryName)"
+
+Import-Module $Module.FullName -Force
+$ThisModule = Get-Module $Module.BaseName
+$Functions  = $ThisModule | Get-Command -CommandType Function
+
+$readmeContent += @"
+## Module: $($ThisModule.Name)
+"@
 
     # Get all functions defined in the module
-    $functions = Get-Command -Module $moduleFile.BaseName -CommandType Function
-
-    $readmeContent += "## Module: $($moduleFile.BaseName)"
-
     foreach ($function in $functions) {
         # Get the function details
         $functionDetails = Get-Help $function.Name -Full
@@ -79,7 +83,7 @@ $($functionDetails)
     }
 
     # Remove the imported module
-    Remove-Module $moduleFile.BaseName
+    Remove-Module $ThisModule
 
     # Add a separator between modules
     $readmeContent += "---`n"
