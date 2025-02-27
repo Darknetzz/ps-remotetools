@@ -24,10 +24,10 @@
 function Unblock-Files {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$true,HelpMessage="Enter one or more hostnames separated by commas.")]
         [string[]]$Hosts,
 
-        [Parameter(Mandatory=$true)]
+        [Parameter(Mandatory=$true,HelpMessage="Enter one or more filepaths separated by commas.")]
         [string[]]$Files
     )
 

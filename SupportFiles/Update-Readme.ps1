@@ -1,5 +1,6 @@
 # Path to the Modules directory
 $currentDirectory = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$parentDirectory  = Split-Path -Path $currentDirectory -Parent
 $modulesPath      = "$currentDirectory\Modules"
 
 # Get all module files in the Modules directory
@@ -85,7 +86,7 @@ $($functionDetails)
 }
 
 # Path to the README.md file
-$readmePath = Join-Path -Path $currentDirectory -ChildPath "MODULES.md"
+$readmePath = Join-Path -Path $parentDirectory -ChildPath "MODULES.md"
 
 # Write the README.md file
 $readmeContent | Out-File -FilePath $readmePath -Encoding utf8

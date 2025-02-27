@@ -1,10 +1,23 @@
-# Get the list of files in the 'Modules' folder
-$moduleFiles = Get-ChildItem -Path "Modules" -File
+# Directories
+$CurrentScriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
+$ModulesDir       = Join-Path -Path $CurrentScriptDir -ChildPath "Modules"
 
-# Iterate through each file in the 'Modules' folder
-foreach ($file in $moduleFiles) {
-    # Perform actions on each file
-    Write-Output "Processing file: $($file.FullName)"
-    Import-Module -Name $file.FullName
-    Export-Module -Name $file.FullName
+# Get the list of files in the 'Modules' folder
+$ModulesFiles = Get-ChildItem -Path $ModulesDir -Filter *.psm1
+
+# Export all functions in the modules
+foreach ($Module in $ModulesFiles) {
+    $ThisModuleName    = $Module.BaseName
+    $ThisModuleFile    = $Module.Name
+    $ThisModulePath    = $Module.FullName
+
+    Write-Output "Module: $ThisModuleName"
+    Write-Output "File: $ThisModuleFile"
+    Write-Output "Path: $ThisModulePath"
+
+    # Import the module
+    Import-Module "$($ThisModulePath)" -Force
+
+    # Export all functions in the module
+    Export-Module $ThisModuleName
 }
