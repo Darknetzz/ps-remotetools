@@ -1,6 +1,6 @@
 
 # Remote-Tools
-**Last updated: 2025-02-28 06:55:33**
+**Last updated: 2025-02-28 09:38:34**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
@@ -376,5 +376,83 @@ This example removes User3 from the "Administrators" group on the remote compute
 # RT-MpPreferences
 ---
 # RT-PSRemoting
+
+## Set-RemoteExecutionPolicy
+
+### Synopsis
+
+Set-RemoteExecutionPolicy [[-ComputerName] <string>] [[-ExecutionPolicy] <string>] [[-Scope] <string>] [<CommonParameters>]
+
+
+### Description
+
+
+### Syntax
+```ps1
+
+syntaxItem
+----------
+{@{name=Set-RemoteExecutionPolicy; CommonParameters=True; parameter=System.Object[]}}
+
+
+```
+
+### Parameters
+
+parameter
+---------
+{@{name=ComputerName; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}, @{name=ExecutionPolicy; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; …
+
+
+
+### Examples
+```powershell
+
+```
+
+### Notes
+```powershell
+
+```
+
+
+## Test-WSMan
+
+### Synopsis
+
+Test-WSMan [[-ComputerName] <string>] [<CommonParameters>]
+
+
+### Description
+
+
+### Syntax
+```ps1
+
+syntaxItem
+----------
+{@{name=Test-WSMan; CommonParameters=True; parameter=System.Object[]}}
+
+
+```
+
+### Parameters
+
+parameter
+---------
+{@{name=ComputerName; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}}
+
+
+
+### Examples
+```powershell
+
+```
+
+### Notes
+```powershell
+
+```
+
 ---
 
