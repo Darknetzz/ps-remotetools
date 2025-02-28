@@ -61,7 +61,7 @@ $($ThisModule.Description)
             Syntax      = $functionDetails.Syntax | ForEach-Object {$_} | Out-String
             Description = $functionDetails.Description.Text
             Parameters  = $functionDetails.Parameters | ForEach-Object {$_} | Out-String
-            Examples    = $functionDetails.Examples
+            Examples    = $functionDetails.Examples | ForEach-Object {$_} | Out-String
             Notes       = $functionDetails.Notes
         }
 
@@ -71,26 +71,26 @@ $($ThisModule.Description)
 
 ## $($functionDetailsFormatted.Name)
 
-### Synopsis:
+### Synopsis
 $($functionDetailsFormatted.Synopsis)
 
-### Description:
+### Description
 $($functionDetailsFormatted.Description)
 
-### Syntax:
+### Syntax
 ``````ps1
 $($functionDetailsFormatted.Syntax)
 ``````
 
-### Parameters:
+### Parameters
 $($functionDetailsFormatted.Parameters)
 
-### Examples:
+### Examples
 ``````powershell
 $($functionDetailsFormatted.Examples)
 ``````
 
-### Notes:
+### Notes
 ``````powershell
 $($functionDetailsFormatted.Notes)
 ``````
