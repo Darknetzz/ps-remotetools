@@ -2,8 +2,8 @@
 
 Helpful functions to execute commands on remote hosts using `PSRemote` and `Invoke-Command`.
 
-
 ## Usage
+For detailed module documentation and syntax help, please refer to [MODULES.md](MODULES.md).
 
 
 ### Importing Remote-Tools
@@ -23,9 +23,6 @@ PS> .\Remote-Tools.ps1 -Install
 ```ps1
 Import-Module "Modules\RT-<module>\RT-"
 ```
-
-## Module Documentation
-For detailed module documentation, please refer to [MODULES.md](MODULES.md).
 
 <!--
 ## Variables

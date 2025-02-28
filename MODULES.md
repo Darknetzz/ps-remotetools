@@ -1,6 +1,6 @@
 
 # Remote-Tools
-**Last updated: 2025-02-28 09:38:34**
+**Last updated: 2025-02-28 09:49:38**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
@@ -377,11 +377,89 @@ This example removes User3 from the "Administrators" group on the remote compute
 ---
 # RT-PSRemoting
 
+## Get-RemoteExecutionPolicy
+
+### Synopsis
+
+Get-RemoteExecutionPolicy [[-Hosts] <string>] [<CommonParameters>]
+
+
+### Description
+
+
+### Syntax
+```ps1
+
+syntaxItem
+----------
+{@{name=Get-RemoteExecutionPolicy; CommonParameters=True; parameter=System.Object[]}}
+
+
+```
+
+### Parameters
+
+parameter
+---------
+{@{name=Hosts; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}}
+
+
+
+### Examples
+```powershell
+
+```
+
+### Notes
+```powershell
+
+```
+
+
+## Get-WinRMStatus
+
+### Synopsis
+
+Get-WinRMStatus [[-Hosts] <string>] [<CommonParameters>]
+
+
+### Description
+
+
+### Syntax
+```ps1
+
+syntaxItem
+----------
+{@{name=Get-WinRMStatus; CommonParameters=True; parameter=System.Object[]}}
+
+
+```
+
+### Parameters
+
+parameter
+---------
+{@{name=Hosts; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}}
+
+
+
+### Examples
+```powershell
+
+```
+
+### Notes
+```powershell
+
+```
+
+
 ## Set-RemoteExecutionPolicy
 
 ### Synopsis
 
-Set-RemoteExecutionPolicy [[-ComputerName] <string>] [[-ExecutionPolicy] <string>] [[-Scope] <string>] [<CommonParameters>]
+Set-RemoteExecutionPolicy [[-Hosts] <string[]>] [[-ExecutionPolicy] <string>] [[-Scope] <string>] [<CommonParameters>]
 
 
 ### Description
@@ -401,7 +479,46 @@ syntaxItem
 
 parameter
 ---------
-{@{name=ComputerName; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}, @{name=ExecutionPolicy; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; …
+{@{name=ExecutionPolicy; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=1; aliases=None}, @{name=Hosts; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string[]; type=; posit…
+
+
+
+### Examples
+```powershell
+
+```
+
+### Notes
+```powershell
+
+```
+
+
+## Test-RemoteConnection
+
+### Synopsis
+
+Test-RemoteConnection [[-Hosts] <string>] [<CommonParameters>]
+
+
+### Description
+
+
+### Syntax
+```ps1
+
+syntaxItem
+----------
+{@{name=Test-RemoteConnection; CommonParameters=True; parameter=System.Object[]}}
+
+
+```
+
+### Parameters
+
+parameter
+---------
+{@{name=Hosts; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}}
 
 
 
@@ -420,7 +537,7 @@ parameter
 
 ### Synopsis
 
-Test-WSMan [[-ComputerName] <string>] [<CommonParameters>]
+Test-WSMan [[-Hosts] <string>] [<CommonParameters>]
 
 
 ### Description
@@ -440,7 +557,7 @@ syntaxItem
 
 parameter
 ---------
-{@{name=ComputerName; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}}
+{@{name=Hosts; required=false; pipelineInput=false; isDynamic=false; globbing=false; parameterSetName=(All); parameterValue=string; type=; position=0; aliases=None}}
 
 
 
