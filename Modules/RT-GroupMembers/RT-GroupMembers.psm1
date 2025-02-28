@@ -1,7 +1,7 @@
 # ======================================================================= #
 #                             Add-GroupMembers                            #
 # ======================================================================= #
-
+# FUNCTION: Add-GroupMembers
 function Add-GroupMembers {
     <#
     .SYNOPSIS
@@ -64,7 +64,7 @@ function Add-GroupMembers {
 # ======================================================================= #
 #                           Get-GroupMembers                              #
 # ======================================================================= #
-
+# FUNCTION: Get-GroupMembers
 function Get-GroupMembers {
     <#
 
@@ -110,7 +110,7 @@ function Get-GroupMembers {
 # ======================================================================= #
 #                           Remove-GroupMembers                           #
 # ======================================================================= #
-
+# FUNCTION: Remove-GroupMembers
 function Remove-GroupMembers {
     <#
 

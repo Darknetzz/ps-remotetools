@@ -1,18 +1,7 @@
-# Will be used to Enable-PSRemoting etc.
-
-# Test-WSMan
-# Enable-PSRemoting
-# Disable-PSRemoting
-# Set-ExecutionPolicy
-# Get-Service WinRM
-# Start-Service WinRM
-# Stop-Service WinRM
-# Restart-Service WinRM
-
-
 # ======================================================================= #
 #                          Test-RemoteConnection                          #
 # ======================================================================= #
+# FUNCTION: Test-RemoteConnection
 function Test-RemoteConnection {
     [CmdletBinding()]
     param (
@@ -52,6 +41,7 @@ function Test-RemoteConnection {
 # ======================================================================= #
 #                             Get-WinRMStatus                             #
 # ======================================================================= #
+# FUNCTION: Get-WinRMStatus
 function Get-WinRMStatus {
     [CmdletBinding()]
     param (
@@ -90,6 +80,7 @@ function Get-WinRMStatus {
 # ======================================================================= #
 #                        Set-RemoteExecutionPolicy                        #
 # ======================================================================= #
+# FUNCTION: Set-RemoteExecutionPolicy
 function Set-RemoteExecutionPolicy {
     [CmdletBinding()]
     param (
@@ -152,6 +143,7 @@ function Set-RemoteExecutionPolicy {
 # ======================================================================= #
 #                        Get-RemoteExecutionPolicy                        #
 # ======================================================================= #
+# FUNCTION: Get-RemoteExecutionPolicy
 function Get-RemoteExecutionPolicy {
     [CmdletBinding()]
     param (
@@ -187,7 +179,10 @@ function Get-RemoteExecutionPolicy {
     }
 }
 
-# Test-WSMan
+# ======================================================================= #
+#                                Test-WSMan                               #
+# ======================================================================= #
+# FUNCTION: Test-WSMan
 function Test-WSMan {
     [CmdletBinding()]
     param (

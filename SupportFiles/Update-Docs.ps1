@@ -1,7 +1,4 @@
 $CurrentScriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-$ParentDir        = Split-Path -Path $CurrentScriptDir -Parent
-$ModulesDir       = $ParentDir | Get-ChildItem -Recurse -Directory -Filter Modules
-$ModuleFiles      = $ModulesDir | Get-ChildItem -Filter *.psm1 -Recurse
 . $CurrentScriptDir\Variables.ps1
 
 
@@ -14,7 +11,7 @@ Function AddToReadme {
 
     Write-Output "$Content"
     $global:readmeContent += $Content
-    $readmePath = Join-Path "$ParentDir" -ChildPath "MODULES.md"
+    $readmePath = Join-Path "$RootDir" -ChildPath "MODULES.md"
     $global:readmeContent | Out-File -FilePath $ReadmePath -Encoding utf8
 }
 
@@ -58,7 +55,16 @@ $($ThisModule.Description)
         $functionDetailsFormatted = @{
             Name        = $functionDetails.Name
             Synopsis    = $functionDetails.Synopsis
-            Syntax      = $functionDetails.Syntax | ForEach-Object {$_} | Out-String
+            Syntax      = $functionDetails.Syntax | ForEach-Object {
+                if ($_.ParameterSetName) {
+                    "Syntax: $($_.ParameterSetName)"
+                }
+                if ($_.Parameters) {
+                    $_.Parameters | ForEach-Object {
+                        "  - $($_.Name) $($_.Type)"
+                    }
+                }
+            }
             Description = $functionDetails.Description.Text
             Parameters  = $functionDetails.Parameters | ForEach-Object {$_} | Out-String
             Examples    = $functionDetails.Examples | ForEach-Object {$_} | Out-String
@@ -72,7 +78,7 @@ $($ThisModule.Description)
 ## $($functionDetailsFormatted.Name)
 
 ### Synopsis
-$($functionDetailsFormatted.Synopsis)
+$(if ($functionDetailsFormatted.Synopsis) { $functionDetailsFormatted.Synopsis } else {"No synopsis available."})
 
 ### Description
 $($functionDetailsFormatted.Description)

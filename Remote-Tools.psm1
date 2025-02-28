@@ -1,7 +1,5 @@
 # Directories
-$CurrentScriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-$ModulesDir       = Join-Path -Path $CurrentScriptDir -ChildPath "Modules"
-$Modules          = $ModulesDir | Get-ChildItem -Directory -Recurse
+. SupportFiles\Variables.ps1
 
 # Get the list of files in the 'Modules' folder
 

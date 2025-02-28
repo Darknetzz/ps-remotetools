@@ -1,6 +1,6 @@
 
 # Remote-Tools
-**Last updated: 2025-02-28 09:49:38**
+**Last updated: 2025-02-28 14:37:27**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
@@ -18,11 +18,6 @@ It takes a list of Hosts and a list of file paths as input parameters and execut
 
 ### Syntax
 ```ps1
-
-Unblock-Files [-Hosts] <String[]> [-Files] <String[]> [<CommonParameters>]
-
-
-
 
 ```
 
@@ -94,11 +89,6 @@ The Add-GroupMembers function connects to a remote computer specified by the Hos
 
 ### Syntax
 ```ps1
-
-Add-GroupMembers [-Hosts] <String> [[-GroupName] <String>] [-Members] <String[]> [[-Force] <Boolean>] [<CommonParameters>]
-
-
-
 
 ```
 
@@ -198,11 +188,6 @@ The Get-GroupMembers function connects to a remote computer specified by the Hos
 ### Syntax
 ```ps1
 
-Get-GroupMembers [-Hosts] <String> [[-GroupName] <String>] [<CommonParameters>]
-
-
-
-
 ```
 
 ### Parameters
@@ -281,11 +266,6 @@ The Remove-GroupMembers function connects to a remote computer specified by the 
 
 ### Syntax
 ```ps1
-
-Remove-GroupMembers [-Hosts] <String> [[-GroupName] <String>] [-Members] <String[]> [[-Force] <Boolean>] [<CommonParameters>]
-
-
-
 
 ```
 
@@ -390,11 +370,6 @@ Get-RemoteExecutionPolicy [[-Hosts] <string>] [<CommonParameters>]
 ### Syntax
 ```ps1
 
-syntaxItem
-----------
-{@{name=Get-RemoteExecutionPolicy; CommonParameters=True; parameter=System.Object[]}}
-
-
 ```
 
 ### Parameters
@@ -428,11 +403,6 @@ Get-WinRMStatus [[-Hosts] <string>] [<CommonParameters>]
 
 ### Syntax
 ```ps1
-
-syntaxItem
-----------
-{@{name=Get-WinRMStatus; CommonParameters=True; parameter=System.Object[]}}
-
 
 ```
 
@@ -468,11 +438,6 @@ Set-RemoteExecutionPolicy [[-Hosts] <string[]>] [[-ExecutionPolicy] <string>] [[
 ### Syntax
 ```ps1
 
-syntaxItem
-----------
-{@{name=Set-RemoteExecutionPolicy; CommonParameters=True; parameter=System.Object[]}}
-
-
 ```
 
 ### Parameters
@@ -507,11 +472,6 @@ Test-RemoteConnection [[-Hosts] <string>] [<CommonParameters>]
 ### Syntax
 ```ps1
 
-syntaxItem
-----------
-{@{name=Test-RemoteConnection; CommonParameters=True; parameter=System.Object[]}}
-
-
 ```
 
 ### Parameters
@@ -545,11 +505,6 @@ Test-WSMan [[-Hosts] <string>] [<CommonParameters>]
 
 ### Syntax
 ```ps1
-
-syntaxItem
-----------
-{@{name=Test-WSMan; CommonParameters=True; parameter=System.Object[]}}
-
 
 ```
 

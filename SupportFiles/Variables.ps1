@@ -5,14 +5,13 @@ Set-Variable -Name "RTVariables" -Value @{
     Tags              = @("Remote", "Tools")
 }
 
-# $CurrentScriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-# $ParentDir        = Split-Path -Path $CurrentScriptDir -Parent
-# $ModulesDir       = $ParentDir | Get-ChildItem -Recurse -Directory -Filter Modules
-# $ModuleFiles      = $ModulesDir | Get-ChildItem -Filter *.psm1 -Recurse
-# . $CurrentScriptDir\Variables.ps1
+# $CurrentScriptDir - Will always be the directory where the current script is located
+# That means SupportFiles as long as you are fetching the variables from the Variables.ps1 file
+$CurrentScriptDir = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
 
-# Write-Output "Parent directory: $ParentDir"
-# Write-Output "Current directory: $CurrentScriptDir"
-# Write-Output "Modules directory: $ModulesDir"
-# Write-Output "Module files:"
-# $ModuleFiles | ForEach-Object { $_.FullName }
+# $RootDir - Will always be the root directory of the project
+$RootDir          = Split-Path -Path $CurrentScriptDir -Parent
+
+# Modules directory
+$ModulesDir       = $ParentDir | Get-ChildItem -Recurse -Directory -Filter Modules
+$ModuleFiles      = $ModulesDir | Get-ChildItem -Filter *.psm1 -Recurse
