@@ -1,6 +1,6 @@
 
 # Remote-Tools
-**Last updated: 2025-02-27 20:56:00**
+**Last updated: 2025-02-28 06:51:07**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
@@ -9,31 +9,61 @@ This repository contains a collection of PowerShell modules that provide functio
 
 ## Unblock-Files
 
-* **Synopsis**:
+### Synopsis:
+Unblock-Files - Unblocks specified files on remote hosts.
+
+### Description:
+Unblock-Files unblocks specified files on one or more remote hosts using PowerShell remoting. 
+It takes a list of Hosts and a list of file paths as input parameters and executes the Unblock-File cmdlet on each remote host.
+
+### Syntax:
+```ps1
+
+Unblock-Files [-Hosts] <String[]> [-Files] <String[]> [<CommonParameters>]
 
 
-* **Syntax**:
-```powershell
 
 ```
 
-* **Description**:
-```powershell
+### Parameters:
 
+    -Hosts <String[]>
+        An array of hosts where the files need to be unblocked. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Files <String[]>
+        An array of file paths that need to be unblocked on the remote hosts. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    2
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+
+
+
+
+### Examples:
+```powershell
+@{example=@{title=-------------------------- EXAMPLE 1 --------------------------; introduction=System.Management.Automation.PSObject[]; code=Unblock-Files -Hosts "Server01", "Server02" -Files "C:\path\to\file1.txt", "C:\path\to\file2.txt"
+This command unblocks the specified files on the remote hosts Server01 and Server02.; remarks=System.Management.Automation.PSObject[]}}
 ```
 
-* **Parameters**:
-```powershell
-@{parameter=System.Management.Automation.PSObject[]}
-```
-
-* **Examples**:
-```powershell
-@{example=@{title=-------------------------- EXAMPLE 1 --------------------------; code=Unblock-Files -Hosts "Server01", "Server02" -Files "C:\path\to\file1.txt", "C:\path\to\file2.txt"
-This command unblocks the specified files on the remote hosts Server01 and Server02.; introduction=System.Management.Automation.PSObject[]; remarks=System.Management.Automation.PSObject[]}}
-```
-
-* **Notes**:
+### Notes:
 ```powershell
 
 ```
@@ -43,30 +73,78 @@ This command unblocks the specified files on the remote hosts Server01 and Serve
 
 ## Add-GroupMembers
 
-* **Synopsis**:
+### Synopsis:
+Adds specified members to a local group on a remote computer.
+
+### Description:
+The Add-GroupMembers function connects to a remote computer specified by the Host parameter and adds the specified members to a local group. By default, the group is "Administrators", but this can be changed using the GroupName parameter.
+
+### Syntax:
+```ps1
+
+Add-GroupMembers [-Hosts] <String> [[-GroupName] <String>] [-Members] <String[]> [[-Force] <Boolean>] [<CommonParameters>]
 
 
-* **Syntax**:
-```powershell
 
 ```
 
-* **Description**:
-```powershell
+### Parameters:
 
-```
+    -Hosts <String>
+        The name of the remote computer where the group members will be added. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -GroupName <String>
+        The name of the local group to which the members will be added. This parameter is optional and defaults to "Administrators".
+        
+        Required?                    false
+        Position?                    2
+        Default value                Administrators
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Members <String[]>
+        An array of members to be added to the specified group. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Force <Boolean>
+        
+        Required?                    false
+        Position?                    4
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
 
-* **Parameters**:
-```powershell
-@{parameter=System.Management.Automation.PSObject[]}
-```
 
-* **Examples**:
+
+
+### Examples:
 ```powershell
 @{example=System.Management.Automation.PSObject[]}
 ```
 
-* **Notes**:
+### Notes:
 ```powershell
 
 ```
@@ -74,30 +152,59 @@ This command unblocks the specified files on the remote hosts Server01 and Serve
 
 ## Get-GroupMembers
 
-* **Synopsis**:
+### Synopsis:
+Retrieves members of a specified local group on a remote computer.
+
+### Description:
+The Get-GroupMembers function connects to a remote computer specified by the Host parameter and retrieves the members of a specified local group. By default, the group is "Administrators", but this can be changed using the GroupName parameter.
+
+### Syntax:
+```ps1
+
+Get-GroupMembers [-Hosts] <String> [[-GroupName] <String>] [<CommonParameters>]
 
 
-* **Syntax**:
-```powershell
 
 ```
 
-* **Description**:
-```powershell
+### Parameters:
 
-```
+    -Hosts <String>
+        The name of the remote computer from which the group members will be retrieved. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -GroupName <String>
+        The name of the local group whose members will be retrieved. This parameter is optional and defaults to "Administrators".
+        
+        Required?                    false
+        Position?                    2
+        Default value                Administrators
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
 
-* **Parameters**:
-```powershell
-@{parameter=System.Management.Automation.PSObject[]}
-```
 
-* **Examples**:
+
+
+### Examples:
 ```powershell
 @{example=System.Management.Automation.PSObject[]}
 ```
 
-* **Notes**:
+### Notes:
 ```powershell
 
 ```
@@ -105,30 +212,77 @@ This command unblocks the specified files on the remote hosts Server01 and Serve
 
 ## Remove-GroupMembers
 
-* **Synopsis**:
+### Synopsis:
+Removes specified members from a local group on a remote computer.
+
+### Description:
+The Remove-GroupMembers function connects to a remote computer specified by the Host parameter and removes the specified members from a local group. By default, the group is "Administrators", but this can be changed using the GroupName parameter.
+
+### Syntax:
+```ps1
+
+Remove-GroupMembers [-Hosts] <String> [[-GroupName] <String>] [-Members] <String[]> [[-Force] <Boolean>] [<CommonParameters>]
 
 
-* **Syntax**:
-```powershell
 
 ```
 
-* **Description**:
-```powershell
+### Parameters:
 
-```
+    -Hosts <String>
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -GroupName <String>
+        The name of the local group from which the members will be removed. This parameter is optional and defaults to "Administrators".
+        
+        Required?                    false
+        Position?                    2
+        Default value                Administrators
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Members <String[]>
+        An array of members to be removed from the specified group. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Force <Boolean>
+        
+        Required?                    false
+        Position?                    4
+        Default value                False
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
 
-* **Parameters**:
-```powershell
-@{parameter=System.Management.Automation.PSObject[]}
-```
 
-* **Examples**:
+
+
+### Examples:
 ```powershell
 @{example=System.Management.Automation.PSObject[]}
 ```
 
-* **Notes**:
+### Notes:
 ```powershell
 
 ```

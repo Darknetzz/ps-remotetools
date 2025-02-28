@@ -58,45 +58,41 @@ $($ThisModule.Description)
         $functionDetailsFormatted = @{
             Name        = $functionDetails.Name
             Synopsis    = $functionDetails.Synopsis
-            Syntax      = $functionDetails.Syntax
-            Description = $functionDetails | Select-String -Property Description
-            Parameters  = $functionDetails | Select-String -Property Parameters
-            Examples    = $functionDetails | Select-String -Property Examples
-            Notes       = $functionDetails | Select-String -Property Notes
+            Syntax      = $functionDetails.Syntax | ForEach-Object {$_} | Out-String
+            Description = $functionDetails.Description.Text
+            Parameters  = $functionDetails.Parameters | ForEach-Object {$_} | Out-String
+            Examples    = $functionDetails.Examples
+            Notes       = $functionDetails.Notes
         }
 
         Write-Output "Processing function: $($_.Name)"
         Write-Output "Help content found: $(if($functionDetails.Synopsis){$true}else{$false})"
         AddToReadme @"
 
-## $($_.Name)
+## $($functionDetailsFormatted.Name)
 
-* **Synopsis**:
-$($synopsis)
+### Synopsis:
+$($functionDetailsFormatted.Synopsis)
 
-* **Syntax**:
-``````powershell
-$($syntax)
+### Description:
+$($functionDetailsFormatted.Description)
+
+### Syntax:
+``````ps1
+$($functionDetailsFormatted.Syntax)
 ``````
 
-* **Description**:
+### Parameters:
+$($functionDetailsFormatted.Parameters)
+
+### Examples:
 ``````powershell
-$($description)
+$($functionDetailsFormatted.Examples)
 ``````
 
-* **Parameters**:
+### Notes:
 ``````powershell
-$($functionDetails.Parameters)
-``````
-
-* **Examples**:
-``````powershell
-$($functionDetails.Examples)
-``````
-
-* **Notes**:
-``````powershell
-$($functionDetails.Notes)
+$($functionDetailsFormatted.Notes)
 ``````
 
 
