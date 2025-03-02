@@ -1,6 +1,6 @@
 
 # Remote-Tools
-**Last updated: 2025-02-28 14:37:27**
+**Last updated: 2025-03-02 17:29:10**
 
 
 This repository contains a collection of PowerShell modules that provide functions for managing remote computers.
@@ -354,6 +354,95 @@ This example removes User3 from the "Administrators" group on the remote compute
 
 ---
 # RT-MpPreferences
+
+## Add-RemoteMpPreference
+
+### Synopsis
+Adds an exclusion to Microsoft Defender Antivirus on a remote computer.
+
+### Description
+The Add-RemoteMpPreference function connects to a remote computer specified by the Host parameter and adds an exclusion to Microsoft Defender Antivirus. The exclusion can be a file, folder, file extension, or process. The exclusion type is specified by the Type parameter.
+
+### Syntax
+```ps1
+
+```
+
+### Parameters
+
+    -Hosts <String>
+        The name of the remote computer to which the exclusion will be added. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    1
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Type <String>
+        The type of exclusion to be added. This parameter is mandatory and can be one of the following values: File, Folder, Extension, Process.
+        
+        Required?                    true
+        Position?                    2
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    -Path <String>
+        The path to the file, folder, or process to be excluded. This parameter is mandatory.
+        
+        Required?                    true
+        Position?                    3
+        Default value                
+        Accept pipeline input?       false
+        Aliases                      
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+
+
+
+
+### Examples
+```powershell
+
+-------------------------- EXAMPLE 1 --------------------------
+
+PS>Add-RemoteMpPreference -Hosts "Server01" -Type "Folder" -Path "C:\Temp"
+This example adds the folder "C:\Temp" to the exclusions list on the remote computer "Server01".
+
+
+
+
+
+
+-------------------------- EXAMPLE 2 --------------------------
+
+PS>Add-RemoteMpPreference -Hosts "Server02" -Type "Extension" -Path ".log"
+This example adds the file extension ".log" to the exclusions list on the remote computer "Server02".
+
+
+
+
+
+
+
+
+
+```
+
+### Notes
+```powershell
+
+```
+
 ---
 # RT-PSRemoting
 
